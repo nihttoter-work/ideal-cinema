@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: '/assets/cdn',
-  filmImagesUrl: '/assets/cdn/movie-covers',
+  filmImagesUrl: '/assets/cdn/movie-covers/',
 };
 
 /*

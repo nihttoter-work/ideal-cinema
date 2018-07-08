@@ -249,7 +249,7 @@ p {
 
 .btn-group1 {
   padding: 24px;
-  width: 80%;
+  width: 100%;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border: none;
@@ -362,7 +362,12 @@ p {
    FEATURED PLACES
    ============================================================== */
 
+.featured-responsive {
+  padding-bottom: 60px;
+}
+
 .featured-place-wrap {
+  height: 100%;
   background: #fff;
   margin: 0 0 30px;
   transition: all 0.5s ease;
@@ -376,9 +381,7 @@ p {
     text-decoration: none;
     color: #000;
   }
-  img {
-    width: 100%;
-  }
+  img {}
 }
 
 .featured-rating,

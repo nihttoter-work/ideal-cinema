@@ -7,9 +7,7 @@ import { movies } from 'src/assets/cdn/movie.mock-data';
 import { Film } from '../models/film';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FilmService {
 
   apiUrl = environment.apiUrl;

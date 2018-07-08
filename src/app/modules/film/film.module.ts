@@ -11,7 +11,7 @@ import { FilmDetailsModule } from './film-details/film-details.module';
     FilmDetailsModule
   ],
   providers: [
-    FilmService
+    FilmService,
   ]
 })
 export class FilmModule { }
