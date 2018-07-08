@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmListComponent } from './components/film-list/film-list.component';
 import { FilmService } from './services/film.service';
-import { FilmDetailsComponent } from './components/film-details/film-details.component';
+import { FilmListModule } from './film-list/film-list.module';
+import { FilmDetailsModule } from './film-details/film-details.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    FilmListModule,
+    FilmDetailsModule
   ],
-  declarations: [FilmListComponent, FilmDetailsComponent],
   providers: [
     FilmService
   ]
