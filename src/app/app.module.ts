@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { filmsReducer } from './modules/film/store/reducer/film.reducer';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,6 +24,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     AppRoutingModule,
     FilmModule,
     LayoutModule,

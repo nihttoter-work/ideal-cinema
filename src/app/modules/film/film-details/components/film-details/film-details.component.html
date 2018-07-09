@@ -1,3 +1,58 @@
-<p>
-  film-details works!
-</p>
+<ng-container *ngIf="film$ | async as film">
+  <div style="margin-top: 75px;">
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="text-align: center;">
+          <a href="javascript:;" class="grid image-link">
+            <img [attr.src]="imgCdn + film.img" class="img-fluid" alt="#">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//END BOOKING -->
+  <!--============================= RESERVE A SEAT =============================-->
+  <section class="reserve-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>{{film.name}}</h5>
+          <br>
+          <p class="reserve-description">{{film.key}}</p>
+        </div>
+        <div class="col-md-6">
+          <div class="reserve-seat-block" style="text-align: center;">
+            <div class="reserve-rating">
+              <span>{{film.rate}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--//END RESERVE A SEAT -->
+  <!--============================= BOOKING DETAILS =============================-->
+  <section class="light-bg booking-details_wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 responsive-wrap">
+          <div class="booking-checkbox_wrap">
+            <div class="booking-checkbox">
+              <p>{{film.description}}</p>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let genre of film.genres">
+                <label class="custom-checkbox">
+                  <span class="ti-check-box"></span>
+                  <span class="custom-control-description">{{genre.toString()}}</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

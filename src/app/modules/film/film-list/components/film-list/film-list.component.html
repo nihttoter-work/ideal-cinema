@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row">
-      <div *ngFor="let film of (films | async)" class="col-md-4 featured-responsive">
+      <div *ngFor="let film of (films | async)" class="col-md-4 featured-responsive" [routerLink]="['film', film.id.toString()]">
         <app-film-item [film]="film"></app-film-item>
       </div>
     </div>

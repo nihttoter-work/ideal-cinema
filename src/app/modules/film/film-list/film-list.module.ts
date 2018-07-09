@@ -6,12 +6,14 @@ import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { FilmCardService } from './services/film-card.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     FilmListComponent,
