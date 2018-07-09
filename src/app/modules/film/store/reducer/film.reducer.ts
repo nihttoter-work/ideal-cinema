@@ -1,12 +1,25 @@
-import { Film } from '../../models/film';
 import * as FilmActions from './../actions/film.actions';
+import { FilmState } from '../states/film.state';
+import { Film } from '../../models/film';
 
-export function filmsReducer(state: Film[] = [], action: FilmActions.FilmActions) {
+const initialState: FilmState = <FilmState>{
+    films: [],
+    filteredFilms: []
+};
 
-    // Section 3
+
+export function filmsReducer(state: FilmState = initialState, action: FilmActions.FilmActions) {
     switch (action.type) {
         case FilmActions.GET_FILMS:
-            return [...state, ...action.payload];
+            return <FilmState>{
+                films: [...action.payload],
+                filteredFilms: [...action.payload]
+            };
+        case FilmActions.FILTER_FILMS:
+            return <FilmState>{
+                films: [...state.films],
+                filteredFilms: [...state.films.filter(film => film.name.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0)]
+            };
         default:
             return state;
     }

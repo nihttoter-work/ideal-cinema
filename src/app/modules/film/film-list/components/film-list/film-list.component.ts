@@ -6,7 +6,8 @@ import { Film } from '../../../models/film';
 import { filmsReducer } from '../../../store/reducer/film.reducer';
 import * as FilmActions from '../../../store/actions/film.actions';
 import { FilmService } from '../../../services/film.service';
-import { shareReplay } from '../../../../../../../node_modules/rxjs/operators';
+import { shareReplay, map } from '../../../../../../../node_modules/rxjs/operators';
+import { FilmState } from '../../../store/states/film.state';
 
 @Component({
   selector: 'app-film-list',
@@ -23,6 +24,7 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit() {
     this.films = this.store.select('films').pipe(
+      map((currentFilmState: FilmState) => currentFilmState.filteredFilms),
       shareReplay()
     );
 
