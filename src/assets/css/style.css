@@ -227,6 +227,7 @@ p {
 @media (max-width: 992px) {
   .slider {
     min-height: 700px;
+    margin-top: 70px;
   }
 }
 
