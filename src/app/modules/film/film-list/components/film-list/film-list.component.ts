@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { Observable } from '../../../../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { Film } from '../../../models/film';
-import { filmsReducer } from '../../../store/reducer/film.reducer';
 import * as FilmActions from '../../../store/actions/film.actions';
 import { FilmService } from '../../../services/film.service';
-import { shareReplay, map } from '../../../../../../../node_modules/rxjs/operators';
+import { shareReplay, map } from 'rxjs/operators';
 import { FilmState } from '../../../store/states/film.state';
 
 @Component({
@@ -24,9 +23,15 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit() {
     this.films = this.store.select('films').pipe(
-      map((currentFilmState: FilmState) => currentFilmState.filteredFilms),
+      map((currentFilmState: FilmState) => currentFilmState.films
+        .filter(film => film.name.toLowerCase().indexOf(currentFilmState.wordToFilter.toLowerCase()) >= 0)
+        .filter(film =>
+          currentFilmState.genresToFilter.length === 0 || film.genres.some(genre => currentFilmState.genresToFilter.indexOf(genre) >= 0)
+        )),
       shareReplay()
     );
+
+    /* [...state.films.filter(film => film.name.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0)] */
 
     this.getFilms();
   }

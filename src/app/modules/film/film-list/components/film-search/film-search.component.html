@@ -16,9 +16,14 @@
             <div class="col-md-10">
               <form class="form-wrap mt-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <input type="text" placeholder="What are you looking for?" class="btn-group1">
+                  <input type="text" [formControl]="searchControl" placeholder="What are you looking for?" class="btn-group1">
                 </div>
               </form>
+              <div class="slider-link">
+                <a href="#">Browse Popular</a>
+                <span>or</span>
+                <a href="#">Recently Addred</a>
+              </div>
             </div>
           </div>
         </div>

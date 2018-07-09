@@ -4,7 +4,8 @@ import { Film } from '../../models/film';
 
 const initialState: FilmState = <FilmState>{
     films: [],
-    filteredFilms: []
+    wordToFilter: '',
+    genresToFilter: []
 };
 
 
@@ -13,12 +14,20 @@ export function filmsReducer(state: FilmState = initialState, action: FilmAction
         case FilmActions.GET_FILMS:
             return <FilmState>{
                 films: [...action.payload],
-                filteredFilms: [...action.payload]
+                wordToFilter: state.wordToFilter,
+                genresToFilter: state.genresToFilter
             };
         case FilmActions.FILTER_FILMS:
             return <FilmState>{
                 films: [...state.films],
-                filteredFilms: [...state.films.filter(film => film.name.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0)]
+                wordToFilter: action.payload,
+                genresToFilter: state.genresToFilter
+            };
+        case FilmActions.FILTER_FILMS_BY_GENRE:
+            return <FilmState>{
+                films: [...state.films],
+                wordToFilter: state.wordToFilter,
+                genresToFilter: action.payload
             };
         default:
             return state;
