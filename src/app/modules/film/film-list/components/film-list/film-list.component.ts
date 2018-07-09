@@ -14,7 +14,7 @@ import { FilmState } from '../../../store/states/film.state';
   styleUrls: ['./film-list.component.scss']
 })
 export class FilmListComponent implements OnInit {
-  films: Observable<Film[]>;
+  films$: Observable<Film[]>;
 
   constructor(
     private store: Store<AppState>,
@@ -22,7 +22,7 @@ export class FilmListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.films = this.store.select('films').pipe(
+    this.films$ = this.store.select('films').pipe(
       map((currentFilmState: FilmState) => currentFilmState.films
         .filter(film => film.name.toLowerCase().indexOf(currentFilmState.wordToFilter.toLowerCase()) >= 0)
         .filter(film => {

@@ -1,6 +1,6 @@
 <app-film-search></app-film-search>
-<section class="main-block light-bg">
-  <div class="container">
+<section *ngIf="films$ | async as films" class="main-block light-bg">
+  <div *ngIf="films.length !== 0; else nothingFound" class="container">
     <div class="row justify-content-center">
       <div class="col-md-5">
         <div class="styled-heading">
@@ -9,9 +9,18 @@
       </div>
     </div>
     <div class="row">
-      <div *ngFor="let film of (films | async)" class="col-md-4 featured-responsive" [routerLink]="['film', film.id.toString()]">
+      <div *ngFor="let film of films" class="col-md-4 featured-responsive" [routerLink]="['film', film.id.toString()]">
         <app-film-item [film]="film"></app-film-item>
       </div>
     </div>
   </div>
+  <ng-template #nothingFound>
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="styled-heading">
+          <h4>Nothing found!!!</h4>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </section>
