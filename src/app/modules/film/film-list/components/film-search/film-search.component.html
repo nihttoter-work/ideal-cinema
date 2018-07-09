@@ -20,9 +20,7 @@
                 </div>
               </form>
               <div class="slider-link">
-                <a href="#">Browse Popular</a>
-                <span>or</span>
-                <a href="#">Recently Addred</a>
+                <app-film-card *ngFor="let genre of genres" [genre]="genre"></app-film-card>
               </div>
             </div>
           </div>

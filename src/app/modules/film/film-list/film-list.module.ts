@@ -5,6 +5,7 @@ import { FilmSearchComponent } from './components/film-search/film-search.compon
 import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilmCardComponent } from './components/film-card/film-card.component';
+import { FilmCardService } from './services/film-card.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,9 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
   ],
   exports: [
     FilmListComponent
+  ],
+  providers: [
+    FilmCardService
   ]
 })
 export class FilmListModule { }

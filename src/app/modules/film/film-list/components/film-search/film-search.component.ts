@@ -5,11 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import * as FilmActions from '../../../store/actions/film.actions';
 import { GenreType } from '../../../models/genre';
-
-export class GenreCart {
-  genre: GenreType;
-  isSelected: boolean;
-}
+import { FilmCardService } from '../../services/film-card.service';
 
 @Component({
   selector: 'app-film-search',
@@ -18,22 +14,11 @@ export class GenreCart {
 })
 export class FilmSearchComponent implements OnInit {
   searchControl: FormControl = new FormControl('');
-  genres: GenreType[] = [
-    GenreType.Action,
-    GenreType.Adventure,
-    GenreType.Biography,
-    GenreType.Comedy,
-    GenreType.Crime,
-    GenreType.Drama,
-    GenreType.History,
-    GenreType.Mystery,
-    GenreType.Scifi,
-    GenreType.Sport,
-    GenreType.Thriller
-  ];
+  genres: GenreType[] = this.filmCardService.genres;
 
   constructor(
     private store: Store<AppState>,
+    private filmCardService: FilmCardService,
   ) { }
 
   ngOnInit() {

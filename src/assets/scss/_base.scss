@@ -316,8 +316,16 @@ p {
     color: #909090;
     text-decoration: underline;
     transition: 0.3s;
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 0px 8px;
+    border-radius: 3px;
     &:hover {
       color: #fff;
+    }
+    &.selected {
+      background-color: #ffae00;
+      color: white;
     }
   }
   span {
