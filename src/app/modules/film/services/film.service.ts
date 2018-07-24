@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { of, Observable } from '../../../../../node_modules/rxjs';
+import { of, Observable } from 'rxjs';
 import { timeout } from 'rxjs/operators';
 import { movies } from 'src/assets/cdn/movie.mock-data';
 import { Film } from '../models/film';
