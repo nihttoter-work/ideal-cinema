@@ -23,17 +23,9 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit() {
     this.films$ = this.store.select('films').pipe(
-      map((currentFilmState: FilmState) => currentFilmState.films
-        .filter(film => film.name.toLowerCase().indexOf(currentFilmState.wordToFilter.toLowerCase()) >= 0)
-        .filter(film => {
-          return currentFilmState.genresToFilter.length === 0 ||
-            film.genres.some(genre => currentFilmState.genresToFilter.indexOf(genre) >= 0);
-        }
-        )),
+      map(films => films.filteredFilms),
       shareReplay()
     );
-
-    /* [...state.films.filter(film => film.name.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0)] */
 
     this.getFilms();
   }

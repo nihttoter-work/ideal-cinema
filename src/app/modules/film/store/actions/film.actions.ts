@@ -4,12 +4,20 @@ import { GenreType } from '../../models/genre';
 
 export const GET_FILMS = '[FILM] Get';
 
+export const GET_FILTERED_FILMS = '[FILM] Get filtered';
+
 export const FILTER_FILMS = '[FILM] Filter';
 
 export const FILTER_FILMS_BY_GENRE = '[FILM] Filter By Genre';
 
 export class GetFilms implements Action {
     readonly type = GET_FILMS;
+
+    constructor(public payload: Film[]) { }
+}
+
+export class GetFilteredFilms implements Action {
+    readonly type = GET_FILTERED_FILMS;
 
     constructor(public payload: Film[]) { }
 }
@@ -26,4 +34,4 @@ export class FilterFilmsByGenre implements Action {
     constructor(public payload: GenreType[]) { }
 }
 
-export type FilmActions = GetFilms | FilterFilms | FilterFilmsByGenre;
+export type FilmActions = GetFilms | GetFilteredFilms | FilterFilms | FilterFilmsByGenre;

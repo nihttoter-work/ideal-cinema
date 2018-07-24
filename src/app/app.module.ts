@@ -11,6 +11,8 @@ import { filmsReducer } from './modules/film/store/reducer/film.reducer';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { FilmEffects } from './modules/film/store/effects/film.effects';
 
 
 
@@ -20,6 +22,7 @@ import { RouterModule } from '@angular/router';
     StoreModule.forRoot({
       films: filmsReducer
     }),
+    EffectsModule.forRoot([FilmEffects]),
     StoreDevtoolsModule.instrument(),
     HttpClientModule,
     FormsModule,
